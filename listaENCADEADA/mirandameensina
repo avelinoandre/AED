@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+// Soma dos elementos de uma lista encadeada
+// Implemente uma função em linguagem C que receba uma lista encadeada de números inteiros e retorne a soma de todos os seus elementos.
+// EX: Se a lista contiver os elementos 10 -> 20 -> 30 -> NULL, a função deverá retornar 60.
+
+int main (){
+
+
+    
+
+}
