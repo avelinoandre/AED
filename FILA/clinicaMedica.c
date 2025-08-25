@@ -56,7 +56,17 @@ int main (){
         }else{
             printf("Opção inválida!\n");
         }
+        switch (opcao)
+        {
+        case 1:
+            /* code */
+            break;
+        
+        default:
+            break;
+        }
     }
+
 
     return 0;
 }
