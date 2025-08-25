@@ -22,6 +22,19 @@ void imprimir (Node *head){
     }
 }
 
+int procurarEspecifico(Node *head, int numero){
+    int presenca = 0;
+    while(head != NULL){
+
+        if (head->next == numero){
+            presenca = 1;
+        }
+
+        head = head->next;
+    }
+    return presenca;
+}
+
 void remover (Node **head){
     if (*head != NULL){
         Node *temporaria = *head;
@@ -48,6 +61,29 @@ void inserirNoFinal(Node **head, int n){
         temporario->next = novo;
     }
 }
+void inserirEmPosicaoEspecifica (Node **head,int valor, int posicao){
+    Node *novo = (Node *)malloc(sizeof(Node));
+    
+    int contador = 0;
+    novo->num = valor;
+    novo->next = NULL;
+
+    if (head == NULL){
+        *head = novo;
+    }else{
+        Node *temporaria = *head;
+        while (temporaria != NULL){
+            if (contador == posicao - 1){
+                break;
+                
+            }
+            temporaria = temporaria->next;
+            contador += 1;
+        }
+        novo->next = temporaria->next;
+        temporaria->next = novo;
+    }
+}
 
 void removerNoFinal(Node **head){
     if (*head == NULL){
@@ -61,5 +97,34 @@ void removerNoFinal(Node **head){
         }
         free(temporaria->next);
         temporaria->next = NULL;
+    }
+}
+
+void removerEmPosicaoEspecifica(Node **head, int posicao){
+    int contador = 0;
+
+    if (*head == NULL){
+        printf("Lista está vazia!");
+    }else if((*head)->next == NULL){
+        free(head);
+    }else{
+        Node *temporaria = *head;
+        if (posicao == 0){
+            *head = temporaria->next;
+            free(temporaria);
+            return;
+        }
+        while (temporaria != NULL){ 
+            if (contador == posicao - 1){
+                break;
+            }
+            temporaria = temporaria->next;
+            contador += 1;
+        }
+
+        Node *deletar = temporaria->next;
+        temporaria->next = deletar->next;
+        free(deletar);
+        
     }
 }
