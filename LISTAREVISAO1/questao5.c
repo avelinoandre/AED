@@ -8,6 +8,10 @@ typedef struct Node{
 
 }Node;
 
+void adicionar (Node **head, Node **tail, int valor);
+int tamanho (Node *head);
+void divisao(Node *head, Node *tail);
+
 // QUESTÃO 05 - Um determinado programa será implementado em C e deve permitir
 // manipular números em uma Fila. Crie uma nova função que imprima a divisão dos valores
 // de duplas de nós que estão nesta fila. Se tiver uma quantidade ímpar de nós (sobrando
@@ -39,8 +43,7 @@ int main (){
 
     if (situacao == 1){
 
-
-
+        divisao(head, tail);
 
     }else{
 
@@ -71,7 +74,7 @@ void adicionar (Node **head, Node **tail, int valor){
 
 }
 
-int  verificar (Node *head){
+int tamanho (Node *head){
 
     int cont = 0;
     Node *temp = head;
@@ -95,12 +98,53 @@ int  verificar (Node *head){
 
 }
 
+void divisao(Node *head, Node *tail){
+    
+    
+    
+    if (head == tail){
+
+        printf("Lista está vazia!");
+
+    }else{
+
+        Node *temp = head;
+
+        while (temp != NULL){
+
+            if (temp->prox == NULL){
+
+                printf("%d\n",temp->numero / 10);
+
+            }else{
+
+                if (temp->prox->numero != 0){
+
+                    printf("%d\n", temp->numero / temp->prox->numero);
+
+                } else{
+
+                    printf("erro, divisao por zero.");
+
+                }
 
 
-void divisao(Node *head, Node *tail, int resultado){
 
-    Node *temp = head;
+            }
+            
+            temp = temp->prox->prox;
+
+        }
+
+    }
+    
+
+
 
     
+
+
+    
+
 
 }
