@@ -42,6 +42,31 @@ void adicionar (Node **head, Node **tail, int valor){
 
 }
 
+void remover (Node **head, Node **tail){
+
+    Node *temp;
+
+    while ((*head)->prox != NULL){
+
+        if (*head != NULL){
+    
+            temp = *head;
+    
+            *head = (*head)->prox;
+    
+            free(temp);
+    
+            if (head == NULL){
+    
+                *tail = NULL;
+    
+            }
+    
+        }
+        
+    }
+
+}
 
 void questaoToda (Node **head, Node **tail, Node **head1, Node **tail1, Node **head2, Node **tail2, int referencia){
 
