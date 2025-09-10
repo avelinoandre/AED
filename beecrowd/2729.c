@@ -19,7 +19,7 @@ void imprimir(Node *head);
 int main () {
 
     int quantidade;
-    
+
     scanf("%d", &quantidade);
 
     getchar(); 
@@ -28,7 +28,7 @@ int main () {
 
         Node *head = NULL;
         int cont = 0;
-        
+
         char palavras[25001];
 
         fgets(palavras, sizeof(palavras), stdin);
@@ -45,6 +45,7 @@ int main () {
     }
 
     return 0;
+
 }
 void remover (Node **head){
 
