@@ -118,24 +118,97 @@ void removerNoInicio (Node **head){
 
 }
 
-void removerNoFinal (Node **head){
+void removerNoFinal(Node **head) {
+    if (*head == NULL) {
 
-     if (*head == NULL){
-
-        printf("Lista vazia...");
-
-    }else{
-
-        Node *temp = *head;
-
-        while (temp->prox != NULL){
-
-            temp = temp->prox;
-
-        }
-            
-        free(temp);
+        printf("Lista vazia...\n");
+        return;
 
     }
+
+    Node *temp = *head;
+
+    if (temp->prox == NULL) {
+        free(temp);
+        *head = NULL;
+        return;
+    }
+
+    while (temp->prox != NULL) {
+        temp = temp->prox;
+    }
+
+    temp->ant->prox = NULL;
+    free(temp);
+}
+
+void adicionarNoFinalComTail(Node **head, Node **tail, int valor) {
+    Node *novo = (Node*)malloc(sizeof(Node));
+
+    novo->valor = valor;
+    novo->prox = NULL;
+    novo->ant = *tail;
+
+    if (*tail != NULL) {
+
+        (*tail)->prox = novo;
+
+    } else {
+
+        *head = novo;
+
+    }
+
+    *tail = novo;
+}
+
+
+void removerNoFinalComTail(Node **head, Node **tail) {
+    if (*tail == NULL) {
+
+        printf("Lista vazia...\n");
+        return;
+
+    }
+
+    Node *temp = *tail;
+
+    if (*head == *tail) {  
+
+        *head = NULL;
+        *tail = NULL;
+
+    } else {
+
+        *tail = temp->ant;
+        (*tail)->prox = NULL;
+
+    }
+
+    free(temp);
+}
+
+
+void inserirNoFinal(Node **head, int valor) {
+    Node *novo = (Node*)malloc(sizeof(Node));
+    
+    novo->valor = valor;
+    novo->prox = NULL;
+    novo->ant = NULL;
+
+    if (*head == NULL) {
+
+        *head = novo;
+        return;
+
+    }
+
+    Node *temp = *head;
+    while (temp->prox != NULL) {  
+        temp = temp->prox; 
+    }
+
+    temp->prox = novo;
+    novo->ant = temp;
 
 }
