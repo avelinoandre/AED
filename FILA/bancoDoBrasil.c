@@ -78,7 +78,9 @@ void imprimirNumeros (Node *head1, Node *head2, int filaIndisponivel){
             if (head2 != NULL){
                 printf("%d\n", head2->numero);
                 head2 = head2->prox;
+                
             }
+            
             if (head1 != NULL){
                 printf("%d\n", head1->numero);
                 head1 = head1->prox;

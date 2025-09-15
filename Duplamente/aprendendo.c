@@ -48,16 +48,16 @@ void imprimir (Node *head){
     while (head != NULL){
 
         int array[] = {10, 20, 30, 40, 50};
-    int tamanho = sizeof(array) / sizeof(array[0]);
+        int tamanho = sizeof(array) / sizeof(array[0]);
 
-    printf("Array de trás pra frente:\n");
-    for (int i = tamanho - 1; i >= 0; i--) {
-        printf("%d ", array[i]);
-    }
+        printf("Array de trás pra frente:\n");
+        for (int i = tamanho - 1; i >= 0; i--) {
+            printf("%d ", array[i]);
+        }
 
-    printf("\n");
+        printf("\n");
 
-    return 0;
+        return 0;
 
     }
 
