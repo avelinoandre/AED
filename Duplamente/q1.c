@@ -15,20 +15,29 @@ int main() {
 
     for (int i = 0; i < 4; i++) {
         int num;
+
         scanf("%d", &num);
+
         adicionarOrdenado(&head, num);
+
     }
 
     imprimir(head);
 
     return 0;
+
 }
 
 void imprimir(Node *head) {
+
     while (head != NULL) {
+
         printf("%d\n", head->valor);
+
         head = head->prox;
+
     }
+
 }
 
 void adicionarOrdenado(Node **head, int valor) {
@@ -41,15 +50,19 @@ void adicionarOrdenado(Node **head, int valor) {
         novo->ant = NULL;
 
         if (*head == NULL) {
+
             *head = novo;
+
         }
 
         Node *temp = *head;
 
         if (valor < temp->valor) {
+
             novo->prox = temp;
             temp->ant = novo;
             *head = novo;
+
         }
 
         while (temp->prox != NULL && temp->prox->valor < valor) {
@@ -68,10 +81,11 @@ void adicionarOrdenado(Node **head, int valor) {
         }
 
         temp->prox = novo;
+
     }
 
 
-    }
+}
 
 
 void adicionar (Node **head, int numero){
@@ -121,8 +135,6 @@ void AdicionarAlternado(Node **head1, Node **head2, Node **head3){
     }
 }
 
-
-
 void quantidadeDeNos(Node *head, int valor) {
 
     if (head != NULL) {
@@ -140,7 +152,6 @@ void quantidadeDeNos(Node *head, int valor) {
 
         }
 
-
         if (depois == NULL) {
             return;
         }
@@ -157,16 +168,14 @@ void quantidadeDeNos(Node *head, int valor) {
         int qntDepois = 0;
 
         while (depois->prox != NULL) {
+
             qntDepois++;
             depois = depois->prox;
-            
-        }
 
+        }
 
         printf("\nantes: %d\n", qntAntes);
         printf("apos: %d\n", qntDepois);
 
-        
     }
 }
-    
