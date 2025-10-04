@@ -25,6 +25,7 @@ void adicionarPosicaoEspecifica(Node **head, Node **tail, int valor, int posicao
             }
 
             Node *temp = *head;
+            
             for(int i = 1; i < posicao-1 && temp->prox != *head; i++){ 
          
                 temp = temp->prox;
@@ -33,6 +34,7 @@ void adicionarPosicaoEspecifica(Node **head, Node **tail, int valor, int posicao
             
           
             if(temp == *tail){
+
                 novo->prox = *head;
                 novo->ant = *tail;
                 (*tail)->prox = novo;
@@ -40,13 +42,13 @@ void adicionarPosicaoEspecifica(Node **head, Node **tail, int valor, int posicao
                 *tail = novo;
 
             }else{
+
             novo->prox = temp->prox;
             novo->ant = temp; 
             temp->prox->ant = novo;
             temp->prox = novo; 
-
             
             } 
-        }
-    }
+        }
+    }
 }
