@@ -24,10 +24,10 @@ int main (){
 
     struct Node *head = NULL;
 
-    adicionarInicio(&head, 1);
-    adicionarInicio(&head, 2);
-    adicionarInicio(&head, 3);
-    adicionarInicio(&head, 4);
+    adicionarNoMeio(&head, 1);
+    adicionarNoMeio(&head, 2);
+    adicionarNoMeio(&head, 3);
+    adicionarNoMeio(&head, 4);
 
     imprimir(head);
 
@@ -184,22 +184,33 @@ void adicionarNoMeio(Node **head, int valor){
             int parar = (tamanho / 2);
                 
             Node *temp2 = *head;
+            int cont = 0;
 
-            for (int i = 0; i < parar; i++){
+            while (temp2->prox != NULL) {
+            if (cont == parar - 1) {
 
-                temp2 = temp2->prox;
+                break;
+
+            }
+
+            cont++;
+            temp2 = temp2->prox;
 
             }
 
             //1 -> 2 - > 3 -> 4
             //1-> 2 -> 9 -> 3 -> 4
 
-            novo->prox = temp2;
-            novo->ant = temp2->ant;
+            novo->prox = temp2->prox;
+            novo->ant = temp2;
+            
+            if (temp2->prox != NULL){
 
-            temp2->ant->prox = novo;
+                temp2->prox->ant = novo;
 
-            temp2->ant = novo;
+            }
+
+            temp2->prox = novo;
 
         }
 
