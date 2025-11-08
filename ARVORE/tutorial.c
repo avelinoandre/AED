@@ -11,7 +11,7 @@ typedef struct tree{
 
 
 int main(){
-
+    
 }
 
 void add(tree **root, int number){
